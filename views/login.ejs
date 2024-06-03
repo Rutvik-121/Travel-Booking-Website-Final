@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Login</title>
+</head>
+
+<body style="background-color: #f8f9fa;">
+    <header style="padding: 20px 0; text-align: center;">
+        <a href="/" style="font-size: 24px; font-weight: bold; color: #333;">Travel</a>
+    </header>
+
+    <main style="padding: 80px 0;">
+        <section style="max-width: 400px; margin: 0 auto; background-color: #fff; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); padding: 40px;">
+            <h2 style="margin-bottom: 20px; text-align: center; color:black">Login</h2>
+            <form style="margin-top: 20px;" method="post" action="http://localhost:3000/api/v1/users/login">
+              <div style="margin-bottom: 20px; text-align: center; color: red;">
+                <span id="400"></span>
+              </div>
+                Enter your registered email:<input name="email" id="email" required placeholder="Email" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
+                Enter your password:<input name="password" required id="password" type="password" placeholder="Password" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
+                <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Login</button>
+            </form>
+            <div style="text-align: center; margin-top: 20px;">
+                <span style="font-size: 16px;">Don't have an account?</span>
+                <a href="/register" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 5px;">Register here</a>
+            </div>
+        </section>
+    </main>
+        <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // console.log(e);
+        const spanOne = document.getElementById("400")
+
+        spanOne.innerText = ""
+
+        const url = "http://localhost:3000/api/v1/users/verifyLogin";
+        const method = "POST";
+        const data = {
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        };
+        const headers = {
+          "Content-Type": "application/json", // Adjust based on body format (text, form-data, etc.)
+        };
+
+        const body = JSON.stringify(data);
+
+        fetch(url, {
+          method: method,
+          body: body,
+          headers: headers,
+        })
+          .then((response) => response.json()) // Process the response (example: parse JSON)
+          .then((data) => {
+            const code = data.code;
+            if (code == 401) {
+              spanOne.innerText = data.message;
+            }  else if (code == 200) {
+              e.target.submit();
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+</body>
+</html>

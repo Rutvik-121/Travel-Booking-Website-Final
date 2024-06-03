@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Bookings</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+  </style>
+</head>
+<body>
+  <h1>User Bookings</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Email</th>
+        <th>Destination</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.forEach(function(booking) { %>
+        <tr>
+          <td><%= booking.name %></td>
+          <td><%= booking.location %></td>
+          <td><%= booking.duration %></td>
+          <td><%= booking.price %></td>
+          <td><%= booking.email %></td>
+          <td><%= booking.destination %></td>
+          <td><%= new Date(booking.createdAt).toLocaleString() %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

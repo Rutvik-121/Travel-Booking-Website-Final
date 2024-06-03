@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+<title>Explore Packages</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Prevent content from pushing footer out of view */
+}
+
+.navigation {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+.content-container {
+  flex: 1; /* Allow content to fill remaining space */
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.travel-package {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  align-items: center;
+}
+
+.travel-package img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.travel-package-details {
+  flex: 1;
+}
+
+.travel-package-price {
+  font-size: 1.2em;
+  color: #28a745;
+}
+
+.star-rating {
+  color: #ffa500;
+}
+
+h2 {
+  color: #333;
+  margin: 0;
+}
+
+.sort-icon {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 1.5em;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: space-between; /* Spread out the items horizontally */
+  align-items: center;
+  margin-bottom: 10px; /* Add some space between navigation and sort icon */
+}
+
+.sort-container .sort-text {
+  display: flex;
+  align-items: center;
+}
+
+.sort-container .sort-text span {
+  margin-right: 5px;
+}
+</style>
+</head>
+<body>
+<div class="navigation">
+  <a href="/" style="color: white; text-decoration: none; margin: 0 1em; padding: 10px 20px; background-color: #007bff; border-radius: 5px; transition: background-color 0.3s ease;">Go Back</a>
+</div>
+<div class="content-container">
+  <div class="sort-container">
+    <h2>Explore Packages</h2>
+    <div class="sort-text">
+      <span>Sort (By Price)</span>
+      <i class="ri-sort-asc sort-icon" data-sort="asc"></i>
+    </div>
+  </div>
+  <div class="travel-packages">
+    <div class="travel-package">
+      <img src="/img/home-place.jpg" alt="Jaipur">
+      <div class="travel-package-details">
+        <h3>Jaipur</h3>
+        <p>India</p>
+        <p>Duration: 4 days</p>
+        <div class="star-rating">★★★★☆</div>
+      </div>
+      <div class="travel-package-price">₹800</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/home-lake.jpg" alt="Lakshadweep">
+      <div class="travel-package-details">
+        <h3>Lakshadweep</h3>
+        <p>India</p>
+        <p>Duration: 6 days</p>
+        <div class="star-rating">★★★★★</div>
+      </div>
+      <div class="travel-package-price">₹2000</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/home-mountain.jpg" alt="Shimla">
+      <div class="travel-package-details">
+        <h3>Shimla</h3>
+        <p>India</p>
+        <p>Duration: 3 days</p>
+        <div class="star-rating">★★★☆☆</div>
+      </div>
+      <div class="travel-package-price">₹700</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/home-beach.jpg" alt="Goa">
+      <div class="travel-package-details">
+        <h3>Goa</h3>
+        <p>India</p>
+        <p>Duration: 5 days</p>
+        <div class="star-rating">★★★★☆</div>
+      </div>
+      <div class="travel-package-price">₹1500</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/popular-temple.jpg" alt="Amritsar">
+      <div class="travel-package-details">
+        <h3>Amritsar</h3>
+        <p>India</p>
+        <p>Duration: 4 days</p>
+        <div class="star-rating">★★★★☆</div>
+      </div>
+      <div class="travel-package-price">₹900</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/popular-forest.jpg" alt="Kerala">
+      <div class="travel-package-details">
+        <h3>Kerala</h3>
+        <p>India</p>
+        <p>Duration: 1 day</p>
+        <div class="star-rating">★★★★★</div>
+      </div>
+      <div class="travel-package-price">₹1800</div>
+    </div>
+    <div class="travel-package">
+      <img src="/img/popular-monument.jpg" alt="Delhi">
+      <div class="travel-package-details">
+        <h3>Delhi</h3>
+        <p>India</p>
+        <p>Duration: 3 days</p>
+        <div class="star-rating">★★★☆☆</div>
+      </div>
+      <div class="travel-package-price">₹600</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const travelPackages = document.querySelector('.travel-packages');
+const sortIcon = document.querySelector('.sort-icon');
+
+function sortPackages(sortDirection) {
+  const travelPackageElements = Array.from(travelPackages.querySelectorAll('.travel-package'));
+
+  travelPackageElements.sort((a, b) => {
+    const priceA = parseInt(a.querySelector('.travel-package-price').textContent.replace(/₹/, '')); // Get price from element A and remove currency symbol
+    const priceB = parseInt(b.querySelector('.travel-package-price').textContent.replace(/₹/, '')); // Get price from element B and remove currency symbol
+
+    if (sortDirection === 'asc') {
+      return priceA - priceB; // Sort ascending by price
+    } else {
+      return priceB - priceA; // Sort descending by price
+    }
+  });
+
+  travelPackages.innerHTML = ''; // Clear existing travel packages
+
+  travelPackageElements.forEach(travelPackage => {
+    travelPackages.appendChild(travelPackage); // Append sorted travel packages
+  });
+}
+
+sortIcon.addEventListener('click', function() {
+  let sortDirection = this.dataset.sort; // Get the current sorting direction (asc or desc)
+
+  if (sortDirection === 'asc') {
+    sortDirection = 'desc'; // Switch to descending sort
+    this.dataset.sort = 'desc'; // Update data attribute for next click
+    this.classList.remove('ri-sort-asc');
+    this.classList.add('ri-sort-desc');
+  } else {
+    sortDirection = 'asc'; // Switch to ascending sort
+    this.dataset.sort = 'asc'; // Update data attribute for next click
+    this.classList.remove('ri-sort-desc');
+    this.classList.add('ri-sort-asc');
+  }
+
+  sortPackages(sortDirection); // Sort packages based on the new direction
+});
+
+// Sort packages in ascending order by default when the page loads
+sortPackages('asc');
+</script>
+</body>
+</html>
