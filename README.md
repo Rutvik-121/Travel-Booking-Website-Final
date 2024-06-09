@@ -4,6 +4,8 @@ A user-friendly travel package booking website for different destinations across
 
 This project is developed using HTML,CSS,JS (as the frontend) and Node.js,Express.js,MongoDB (as the backend) which is designed to provide a user-friendly and visually appealing interface for your travel booking.
 
+Check my initial frontend repository and website deployed on GitHub Pages here:- https://github.com/Rutvik-121/Travel_N_Tourism_Website
+
 # Setup
 
 To run the website locally, follow these steps:
