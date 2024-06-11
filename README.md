@@ -6,9 +6,9 @@ This project is developed using HTML,CSS,JS (as the frontend) and Node.js,Expres
 
 Check my initial frontend repository and website deployed on GitHub Pages here:- https://github.com/Rutvik-121/Travel-and-Tourism-Website-Frontend
 
-# Setup
+# Setup 
 
-To run the website locally, follow these steps:
+To run the website **locally**, follow these steps:
 
 1. Clone this repository:
 
@@ -31,4 +31,4 @@ To run the website locally, follow these steps:
     npm start dev
     ```
     
-4. The website is live on "http://localhost:3000/". (Also accessible on the deployed render website once the localhost is started) 
+4. The website is live on "http://localhost:3000/". 
