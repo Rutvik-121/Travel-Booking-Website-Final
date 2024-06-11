@@ -114,7 +114,7 @@
             rating: document.getElementById('detail-rating').innerText,
             duration: document.getElementById('detail-duration').innerText
         }
-        fetch('http://localhost:3000/api/v1/booking/book', {
+        fetch('/api/v1/booking/book', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
